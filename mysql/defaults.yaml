@@ -91,9 +91,9 @@ Debian:
     append: |
       !includedir /etc/mysql/conf.d/
 CentOS:
-  server: mysql-server
-  client: mysql
-  service: mysqld
+  server: mariadb-server
+  client: mariadb
+  service: mariadb
   python: MySQL-python
   dev: mysql-devel
   config_directory: /etc/my.cnf.d/
@@ -102,16 +102,8 @@ CentOS:
   server_config:
     file: server.cnf
     sections:
-      mysqld_safe:
-        log_error: /var/log/mysqld.log
-        pid-file: /var/run/mysqld/mysqld.pid
       mysqld:
-        datadir: /var/lib/mysql
-        socket: /var/lib/mysql/mysql.sock
         user: mysql
-        port: 3306
-        bind_address: 127.0.0.1
-        symbolic_links: 0
 RedHat:
   server: mysql-server
   client: mysql
